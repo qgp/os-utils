@@ -1,0 +1,16 @@
+. /etc/profile
+mount /dev/sdb3 /boot/
+emerge-webrsync
+nano /etc/portage/repos.conf/qgp.conf
+emerge -av dev-vcs/git
+emaint sync qgp
+eselect profile list
+emerge -DuaN @world
+echo "Europe/Brussels" > /etc/timezone
+emerge --config sys-libs/timezone-data
+nano -w /etc/locale.gen
+locale-gen 
+eselect locale list
+eselect locale set 9
+env-update && source /etc/profile
+emerge --ask sys-kernel/gentoo-sources
