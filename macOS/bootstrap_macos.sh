@@ -11,6 +11,7 @@ brew install ansible
 xcode-select -p > /dev/null 2>&1 || xcode-select --install
 
 # checkout ansible repo
+# this could use ansible-pull instead
 [[ -d ${HOME}/sysadmin ]] || mkdir ${HOME}/sysadmin
 if [[ ! -d ${HOME}/sysadmin/qgp-playbook ]]; then
     git clone https://realqgp@bitbucket.org/ansible4qgp/qgp-playbook.git ${HOME}/sysadmin/qgp-playbook
