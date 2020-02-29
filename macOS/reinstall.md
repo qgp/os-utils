@@ -9,3 +9,10 @@ https://support.apple.com/en-us/HT201065
 ```
 startosinstall --eraseinstall
 ```
+
+## Useful comments
+
+To make Setup Assistant run again:
+```
+rm /var/db/.AppleSetupDone
+```

@@ -38,3 +38,5 @@
 - networksetup
 - diskutil
 - fdesetup
+- createinstallmedia
+- `ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}'`
