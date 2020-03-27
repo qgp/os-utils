@@ -1,20 +1,27 @@
 # Reinstall macOS
 
-* [Reinstallation instructions][1]
+* [macOS reinstallation instructions][1]
 * [macOS startup keys]
 
-Since Catalina:
-```
-/usr/sbin/softwareupdate --fetch-full-installer
-```
+## General steps
 
-```
+* [unregister all accounts/...][1]
+* wipe disk (not done automatically on reinstall from recovery)
+* reinstall OS
+
+## Automated reinstallation
+
+since Catalina:
+```bash
+/usr/sbin/softwareupdate --fetch-full-installer
 startosinstall --eraseinstall
 ```
 
+* `Cmd-Q` to shutdown after installation and defer setup assistant
+
 ## Useful comments
 
-To make Setup Assistant run again:
+Rerun Setup Assistant upon next boot:
 ```
 rm /var/db/.AppleSetupDone
 ```
