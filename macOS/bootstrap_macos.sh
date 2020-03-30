@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-exit 1
 # first install brew (used also for installation of ansible then)
 brew --version > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
