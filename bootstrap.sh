@@ -5,7 +5,6 @@ BASEURL="https://raw.githubusercontent.com/qgp/os-utils/master/"
 
 if [[ "$OSTYPE" =~ ^darwin ]]; then
     echo "Bootstrapping macOS"
-    sleep 5
     source <(curl -fsSL ${BASEURL}/macOS/bootstrap_macos.sh)
 elif [[ "$OSTYPE" =~ ^linux ]]; then
     echo "Bootstrapping Linux"
