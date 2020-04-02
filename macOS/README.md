@@ -35,7 +35,10 @@
   ```
   - install key
   - disable password-based login
-- bootstrap configuration tool
+- bootstrap configuration
+  ```bash
+  /bin/zsh <(curl -fsSL https://www.qgp.io/bootstrap_os.php)
+  ```
   - install homebrew
     - pulls in command-line utils
       (otherwise `xcode-select`)

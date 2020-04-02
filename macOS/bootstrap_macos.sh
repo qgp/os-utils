@@ -3,7 +3,7 @@ set -e
 
 # first install brew (used also for installation of ansible then)
 # (this also installs Xcode command line tools)
-brew --version > /dev/null 2>&1 || /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew --version > /dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 # install ansible and git
 brew install ansible git
