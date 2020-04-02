@@ -15,11 +15,13 @@
   - primary account
   - permissions
   - TouchID
-- Software updates
+  - look
+- OS update
   ```
   softwareupdate -i -a
+  sudo halt
   ```
-- set hostname (or map S/N to hostname in ansible?)
+- set hostname (optional, move to bootstrap)
   ```bash
   scutil --set HostName <hostname>
   scutil --set LocalHostName <hostname>
@@ -32,14 +34,14 @@
   systemsetup -setremotelogin on
   ```
   - install key
+  - disable password-based login
 - bootstrap configuration tool
-  - install command line utils (xcode-select)
   - install homebrew
+    - pulls in command-line utils
+      (otherwise `xcode-select`)
   - install ansible and git
-  - ansible-pull
-
-    should add ansible to cron/launchctld
-- install and configure rEFInd (could be done by ansible)
+  - clone and run playbook
+- install and configure rEFInd (optional, could be done by ansible)
   - download zip file [http://sourceforge.net/projects/refind/files/0.12.0/refind-bin-0.12.0.zip/download]
   - copy to ESP (remove non-x64)
   - install and update config file
@@ -56,6 +58,7 @@ to be detailed and added to automatic configuration:
   - FileVault (fdesetup)
     - for institutional recovery key: https://support.apple.com/en-us/HT202385
   - Firewall
+  - add ansible to cron/launchctld
 - misc
   - create users
 - repartition
@@ -70,23 +73,24 @@ to be detailed and added to automatic configuration:
 
 ## Useful commands
 
-- scutil
-- systemsetup
+- scutil (system configuration parameters)
+- systemsetup (system preferences)
   - `systemsetup --setwaitforstartupafterpowerfailure seconds`
-- networksetup
-- diskutil
-- fdesetup
-- createinstallmedia
-- `ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}'`
 - defaults
   ```
   # trackpad
   defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
   # magic mouse
-  sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
   # login and boot screens
-  sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-  sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+  defaults write -g com.apple.mouse.tapBehavior -int 1
   ```
+- networksetup
+- diskutil
+- fdesetup
+- createinstallmedia
+- `ioreg -c IOPlatformExpertDevice -d 2 | awk -F\" '/IOPlatformSerialNumber/{print $(NF-1)}'`
+
+Configuration should be applied from ansible.
 
 ## References
