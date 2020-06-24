@@ -18,10 +18,10 @@ elif [[ "$OSTYPE" =~ ^linux ]]; then
     if [[ "$OS" =~ ^Gentoo ]]; then
         echo "Bootstrapping Gentoo"
         sleep 5
-        source <(curl -fsSL ${BASEURL}/Gentoo/bootstrap_gentoo.sh)
+        source <(curl -fsSL ${BASEURL}/Linux/Gentoo/bootstrap_gentoo.sh)
     elif [[ "$OS" =~ ^Arch ]]; then
         echo "Bootstrapping ArchLinux"
         sleep 5
-        source <(curl -fsSL ${BASEURL}/Arch/bootstrap_arch.sh)
+        source <(curl -fsSL ${BASEURL}/Linux/Arch/bootstrap_arch.sh)
     fi
 fi
