@@ -13,6 +13,6 @@ ISO_CI=${ISO_DIR}/cloud-init.img
 
 # TODO: check signature/key
 
-mkfs.fat -C -n CIDATA ${ISO_CI} 2048
+mkfs.fat -C -n CIDATA ${ISO_CI} 4096
 mcopy -i ${ISO_CI} cloud-init/meta-data cloud-init/user-data ::
 xorriso -indev ${ISO_ORIG} -outdev ${ISO_NEW} -append_partition 3 0x0c ${ISO_CI} -boot_image any replay

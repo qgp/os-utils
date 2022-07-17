@@ -3,3 +3,12 @@ users:
   - name: root
     ssh_authorized_keys:
       - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIO8XgnWmqym5acB0osp/iyFdRL7rww73d239K3mGdkL/ jklein@majkl
+
+write_files:
+- content: |
+    [Security]
+    PreSharedKey=a31692b3d4751b71f457cf08a6028670249b73b2d2163e0c95a1dde752736dd9
+  path: /var/lib/iwd/jklnet.psk
+
+runcmd:
+ - [ systemctl, restart, iwd ]
